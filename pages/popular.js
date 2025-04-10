@@ -23,7 +23,7 @@ export default function Popular() {
 
     return (
         <div>
-            <Header title="Films Populaire" backgroundImage="https://image.tmdb.org/t/p/w500/8Yj0v2g5q3k4x1z6c7f7e4d5f5f.jpg" />
+            <Header title="Films Populaire" backgroundImage="https://img.wallscloud.net/uploads/thumb/2630134492/meteorite-1-63211-1024x576-MM-80.webp" />
             <section class="max-w-7xl mx-auto px-4 py-8 space-y-10">
                 <h2 class="text-2xl font-bold mb-4">Films Populaire</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">

@@ -19,7 +19,6 @@ export default function Movie({ key, movies }) {
             className="w-full h-64 object-cover"
           />
           <div className="p-4">
-            <h1>Coucou</h1>
             <h3 className="text-white font-semibold text-lg mb-1">{movie.title}</h3>
             <p className="text-gray-400 text-sm line-clamp-3">
               {movie.overview}

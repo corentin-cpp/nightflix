@@ -1,18 +1,33 @@
 export default function Header({ title, backgroundImage }) {
   return (
     <div
-      className="relative w-full h-64 md:h-80 lg:h-[400px] flex items-center justify-center overflow-hidden"
       style={{
+        height: '300px',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-      }}
-    >
-      {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        backgroundColor: 'red', // fallback
+        position: 'relative',
+        zIndex: 0,
+      }}>
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.6)',
+          zIndex: 10,
+        }}></div>
 
-      {/* Texte centré */}
-      <h1 className="relative z-10 text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4">
+      <h1
+        style={{
+          position: 'relative',
+          zIndex: 20,
+          color: 'white',
+          textAlign: 'center',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          paddingTop: '100px',
+        }}>
         {title}
       </h1>
     </div>
