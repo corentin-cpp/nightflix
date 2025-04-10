@@ -54,6 +54,10 @@ export function Navbar() {
             <div class="md:hidden mt-3">
                 <input
                     type="text"
+                    onChange={(e) => {
+                        setSearch(e.target.value)
+                        serachMovie(search)
+                    }}
                     placeholder="Rechercher un film..."
                     class="w-full bg-gray-800 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
