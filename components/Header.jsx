@@ -6,7 +6,7 @@ export default function Header({ title, backgroundImage }) {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundColor: 'red', // fallback
+        backgroundColor: 'red',
         position: 'relative',
         zIndex: 0,
       }}>
