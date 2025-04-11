@@ -48,6 +48,7 @@ export function Navbar() {
                     <a href={`/`} class="hover:text-purple-400 transition">Accueil</a>
                     <a href={`/popular`} class="hover:text-purple-400 transition">Populaires</a>
                     <a href={`/news`} class="hover:text-purple-400 transition">Nouveautés</a>
+                    <a href={`/contacts`} class="hover:text-purple-400 transition">Contact</a>
                 </div>
             </div>
 

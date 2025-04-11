@@ -18,7 +18,7 @@ export default function Footer() {
                         <li><a href={`/`} class="hover:text-purple-400 transition">Accueil</a></li>
                         <li><a href={`/popular`} class="hover:text-purple-400 transition">Populaires</a></li>
                         <li><a href={`/news`} class="hover:text-purple-400 transition">Nouveautés</a></li>
-                        <li><a href={`/contact`} class="hover:text-purple-400 transition">Contact</a></li>
+                        <li><a href={`/contacts`} class="hover:text-purple-400 transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
