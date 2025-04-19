@@ -4,6 +4,7 @@ import Players from '@/components/Players'
 import RecomandationsItems from '@/components/RecomandationsItems'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import SaveButton from '@/components/SaveButton'
 
 export default function ProduitDetail() {
   const [details, setDetails] = useState({})
@@ -80,7 +81,7 @@ export default function ProduitDetail() {
                 </span>
                 <span className="text-gray-400 text-sm">({details.vote_count})</span>
               </div>
-
+              <SaveButton movie={details} />
               <p className="text-gray-300 mt-4 leading-relaxed">
                 {details.overview}
               </p>

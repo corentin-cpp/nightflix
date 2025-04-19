@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { SearchMovie } from "./SearchMovie";
+import { useAuth } from "@/context/AuthProvider";
 
 export function Navbar() {
     const [search, setSearch] = useState("");
     const [resultSearch, setResultSearch] = useState([]);
+    const { user } = useAuth();
 
 
     function serachMovie(search) {
@@ -49,6 +51,11 @@ export function Navbar() {
                     <a href={`/popular`} class="hover:text-purple-400 transition">Populaires</a>
                     <a href={`/news`} class="hover:text-purple-400 transition">Nouveautés</a>
                     <a href={`/contacts`} class="hover:text-purple-400 transition">Contact</a>
+                    {user ? (
+                        <a href={`/profile`} class="hover:text-purple-400 transition">Mon compte</a>
+                    ) : (
+                        <a href={`/login`} class="hover:text-purple-400 transition">Se connecter</a>
+                    )}
                 </div>
             </div>
 

@@ -20,7 +20,7 @@ export default function News() {
           .then(res => res.json())
           .then(json => setNews(json.results))
           .catch(err => console.error(err));
-    }, []);
+    }, [news]);
 
     return (
         <div>
