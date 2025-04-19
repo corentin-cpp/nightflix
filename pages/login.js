@@ -1,19 +1,20 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { supabase } from "@/lib/supabaseClient";
-import { Link } from "next/link";
+import Link from "next/link";
 
 export default function Login() {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     async function signIn(e) {
         e.preventDefault();
-        console.log("Email:", email, "Password:", password);
         const { data, error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password,
-        })
+            email,
+            password,
+        });
 
         if (error) {
             console.error("Error signing in:", error.message);
@@ -21,9 +22,8 @@ export default function Login() {
             return;
         }
 
-        console.log("User data:", data);
         if (data.user) {
-            window.location.href = "/profile"; 
+            router.push("/profile");
         }
     }
 
@@ -71,16 +71,20 @@ export default function Login() {
                         placeholder="••••••••"
                     />
                 </div>
-                <Link href="/register" className="text-sm text-purple-400 hover:underline block text-center">
-                    Vous n’avez pas de compte ?
+
+                <Link href="/register">
+                    <span className="text-sm text-purple-400 hover:underline block text-center">
+                        Vous n&apos;avez pas de compte ?
+                    </span>
                 </Link>
+
                 <button
                     type="submit"
                     className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition"
                 >
                     Se connecter
                 </button>
-                <p>{error}</p>
+                <p className="text-red-500 text-sm text-center">{error}</p>
             </form>
         </div>
     );
