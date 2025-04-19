@@ -5,6 +5,7 @@ import RecomandationsItems from '@/components/RecomandationsItems'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import SaveButton from '@/components/SaveButton'
+import Image from 'next/image'
 
 export default function ProduitDetail() {
   const [details, setDetails] = useState({})
@@ -41,7 +42,7 @@ export default function ProduitDetail() {
       .then(res => res.json())
       .then(json => setRecommandations(json.results))
       .catch(err => console.error(err))
-  }, [id])
+  }, [id, options])
 
   return (
     <div>
@@ -50,7 +51,7 @@ export default function ProduitDetail() {
       <div className="bg-gray-900 text-white min-h-screen">
         <div className="max-w-6xl mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row gap-8">
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
               alt={details.title}
               className="w-full md:w-64 rounded-xl shadow-lg object-cover"
@@ -92,7 +93,7 @@ export default function ProduitDetail() {
                   {details.production_companies?.map((deta, index) => (
                     deta.logo_path && (
                       <div key={index} className="flex flex-col items-center">
-                        <img
+                        <Image
                           src={`https://image.tmdb.org/t/p/w500/${deta.logo_path}`}
                           alt={deta.name}
                           className="w-16 h-16 rounded-full shadow-lg object-contain bg-white p-1"

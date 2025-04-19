@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import { Link } from "next/link";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -70,7 +71,9 @@ export default function Login() {
                         placeholder="••••••••"
                     />
                 </div>
-                <a href="/register">Vous n avez pas de compte ?</a>
+                <Link href="/register" className="text-sm text-purple-400 hover:underline block text-center">
+                    Vous n’avez pas de compte ?
+                </Link>
                 <button
                     type="submit"
                     className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition"
