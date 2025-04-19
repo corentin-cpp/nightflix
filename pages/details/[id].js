@@ -51,7 +51,7 @@ export default function ProduitDetail() {
       <div className="bg-gray-900 text-white min-h-screen">
         <div className="max-w-6xl mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row gap-8">
-            <Image
+            <img
               src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
               alt={details.title}
               className="w-full md:w-64 rounded-xl shadow-lg object-cover"
