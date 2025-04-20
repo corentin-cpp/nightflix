@@ -19,7 +19,7 @@ export default function Popular() {
             .then(res => res.json())
             .then(json => setMovies(json.results))
             .catch(err => console.error(err));
-    }, [movies]);
+    }, []);
 
     return (
         <div>

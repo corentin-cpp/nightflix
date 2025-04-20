@@ -93,7 +93,7 @@ export default function ProduitDetail() {
                   {details.production_companies?.map((deta, index) => (
                     deta.logo_path && (
                       <div key={index} className="flex flex-col items-center">
-                        <Image
+                        <img
                           src={`https://image.tmdb.org/t/p/w500/${deta.logo_path}`}
                           alt={deta.name}
                           className="w-16 h-16 rounded-full shadow-lg object-contain bg-white p-1"

@@ -1,5 +1,6 @@
 import { useAuth } from "@/context/AuthProvider";
 import { supabase } from "@/lib/supabaseClient";
+import { FaSave } from "react-icons/fa";
 
 export default function SaveButton({ movie }) {
     const { user } = useAuth();
@@ -35,9 +36,10 @@ export default function SaveButton({ movie }) {
     return (
         <button
             onClick={handleSave}
-            className="mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded transition"
+            className="mt-2 border text-white px-4 py-1 rounded transition border-purple-500 hover:bg-purple-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
         >
-            📌
+            <FaSave className="inline m-4"/>
+            Ajouter aux favoris
         </button>
     );
 }

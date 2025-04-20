@@ -18,7 +18,7 @@ export function Movies() {
             .then(res => res.json())
             .then(json => { setMovies(json.results) })
             .catch(err => console.error(err));
-    });
+    }, []);
 
     return (
         <section>

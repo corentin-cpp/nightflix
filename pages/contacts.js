@@ -1,6 +1,32 @@
 import { FaGithub, FaLinkedin, FaInstagram, FaDiscord } from 'react-icons/fa';
+import { useAuth } from '@/context/AuthProvider';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+
 
 export default function Contacts() {
+  const { user } = useAuth();
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    async function fetchUserData() {
+      if (user) {
+        const { data, error } = await supabase.from("profiles")
+          .select("*")
+          .eq("id", user.id)
+          .single();
+        if (error) {
+          console.error("Error fetching user data:", error);
+        } else {
+          setUserData(data);
+          console.log("User data:", data);
+        }
+      }
+    }
+  
+    fetchUserData();
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 px-4">
       <h1 className="text-4xl font-bold mb-4 text-white">Contact</h1>
@@ -16,6 +42,7 @@ export default function Contacts() {
           </label>
           <input
             type="text"
+            value={userData?.username}
             id="name"
             placeholder="Votre nom"
             className="bg-gray-700 border border-gray-600 rounded w-full py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -26,6 +53,7 @@ export default function Contacts() {
             Email
           </label>
           <input
+            value={user?.email}
             type="email"
             id="email"
             placeholder="Votre email"
